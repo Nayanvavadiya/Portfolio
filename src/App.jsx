@@ -1,6 +1,119 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
+const skills = [
+  {
+    name: 'HTML5',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 2l1.8 18L12 22l7.2-2L21 2H3z" />
+        <path d="M7 7h10l-.3 3H9.3L9 13h7.2l-.5 5.1-3.7 1.1-3.7-1.1-.2-2.5" />
+      </svg>
+    )
+  },
+  {
+    name: 'CSS3',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 2l1.7 18 7.3 2 7.3-2L21 2H3z" />
+        <path d="M7 7h10l-.4 4H9.2l.2 2.2h7.1l-.4 4.2-3.2 1-3.2-1-.2-2.1" />
+      </svg>
+    )
+  },
+  {
+    name: 'JavaScript',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 3h18v18H3z" />
+        <path d="M8 7.5h4v9l-2 1" />
+        <path d="M16 7.5c1.5 0 2.5 1 2.5 2.5S17.5 12.5 16 12.5h-1v3" />
+      </svg>
+    )
+  },
+  {
+    name: 'React',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3c4 0 7 3 7 7 0 3-2 5-5 6l-2 1-2-1c-3-1-5-3-5-6 0-4 3-7 7-7z" />
+        <path d="M12 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
+        <path d="M5 10c1 2 2.5 3.4 4.5 4.2" />
+        <path d="M19 10c-1 2-2.4 3.4-4.5 4.2" />
+      </svg>
+    )
+  },
+  {
+    name: 'Node.js',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+        <path d="M12 7v10" />
+        <path d="M8 9.5l8 5" />
+        <path d="M16 9.5l-8 5" />
+      </svg>
+    )
+  },
+  {
+    name: 'Express',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 6h16" />
+        <path d="M7 6v12" />
+        <path d="M17 6v12" />
+        <path d="M7 12h10" />
+      </svg>
+    )
+  },
+  {
+    name: 'MongoDB',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3c2.5 2 4 4.5 4 7.5 0 3.4-1.4 5.6-4 7.5-2.6-1.9-4-4.1-4-7.5C8 7.5 9.5 5 12 3z" />
+        <path d="M12 8v8" />
+      </svg>
+    )
+  },
+  {
+    name: 'MySQL',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M5 5h14v14H5z" />
+        <path d="M8 9h8" />
+        <path d="M8 13h5" />
+        <path d="M8 17h7" />
+      </svg>
+    )
+  },
+  {
+    name: 'GitHub',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 19c-5 1.5-5-2.5-7-3" />
+        <path d="M15 22v-3.9a3.4 3.4 0 0 0-1-2.6c3.2-.4 6.6-1.6 6.6-7A5.4 5.4 0 0 0 20 4.8 5.1 5.1 0 0 0 19.9 1s-1.2-.4-3.9 1.4a13.4 13.4 0 0 0-7 0C6.3.6 5.1 1 5.1 1A5.1 5.1 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.8c0 5.4 3.3 6.6 6.5 7a3.4 3.4 0 0 0-.9 2.6V22" />
+      </svg>
+    )
+  },
+  {
+    name: 'Figma',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 3a3 3 0 0 0 0 6h2V3H8z" />
+        <path d="M10 9h2a3 3 0 1 1 0 6h-2V9z" />
+        <path d="M10 15h2a3 3 0 1 0 0-6h-2v6z" />
+      </svg>
+    )
+  },
+  {
+    name: 'Postman',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M5 7h14" />
+        <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        <path d="M7 7h10l-1 10a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2L7 7z" />
+      </svg>
+    )
+  }
+];
+
 function App() {
   const [theme, setTheme] = useState('dark');
 
@@ -95,42 +208,14 @@ function App() {
       {/* Skills Section */}
       <section id="skills" className="scroll-animate" style={{ opacity: 0 }}>
         <h2 className="section-title">Technical Skills</h2>
-        <div className="skills-container">
-          <div className="glass-panel skill-category">
-            <h3>Frontend</h3>
-            <div className="skill-tags">
-              <span className="skill-tag">HTML5</span>
-              <span className="skill-tag">CSS3</span>
-              <span className="skill-tag">JavaScript (ES6+)</span>
-              <span className="skill-tag">React.js</span>
-            </div>
-          </div>
-
-          <div className="glass-panel skill-category">
-            <h3>Backend</h3>
-            <div className="skill-tags">
-              <span className="skill-tag">Node.js</span>
-              <span className="skill-tag">Express.js</span>
-            </div>
-          </div>
-
-          <div className="glass-panel skill-category">
-            <h3>Database & Programming</h3>
-            <div className="skill-tags">
-              <span className="skill-tag">MongoDB</span>
-              <span className="skill-tag">MySQL</span>
-              <span className="skill-tag">C / C++</span>
-            </div>
-          </div>
-
-          <div className="glass-panel skill-category">
-            <h3>Tools & Practices</h3>
-            <div className="skill-tags">
-              <span className="skill-tag">Git / GitHub</span>
-              <span className="skill-tag">Figma</span>
-              <span className="skill-tag">Postman</span>
-              <span className="skill-tag">Responsive Design</span>
-            </div>
+        <div className="skills-marquee">
+          <div className="skills-track">
+            {[...skills, ...skills].map((skill, index) => (
+              <div className="skill-badge" key={`${skill.name}-${index}`}>
+                <div className="skill-icon">{skill.icon}</div>
+                <span>{skill.name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
