@@ -231,7 +231,7 @@ function App() {
               <h3>Nexotips Infotech</h3>
               <h4>Frontend Developer Intern</h4>
               <div className="experience-meta">
-                <span>May 2026 – June 2026</span>
+                <span>May 2026 – June 2026 (1 Month)</span>
                 <span>Surat, Gujarat</span>
               </div>
               <ul>
@@ -247,7 +247,7 @@ function App() {
               <h3>Webito Infotech</h3>
               <h4>React Developer</h4>
               <div className="experience-meta">
-                <span>January 2026 – April 2026</span>
+                <span>January 2026 – April 2026 (3 Month)</span>
                 <span>Remote</span>
               </div>
               <ul>
@@ -263,7 +263,7 @@ function App() {
               <h3>Shonayavkash</h3>
               <h4>Frontend Developer</h4>
               <div className="experience-meta">
-                <span>June 2025 – July 2025</span>
+                <span>June 2025 – July 2025 (1 Month)</span>
                 <span>Surat, Gujarat</span>
               </div>
               <ul>
