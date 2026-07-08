@@ -1,19 +1,40 @@
 import { useEffect, useState } from 'react';
-import { SiHtml5, SiCss, SiJavascript, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiGithub, SiFigma, SiPostman } from 'react-icons/si';
+import { SiHtml5, SiCss, SiJavascript, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiGit, SiFigma, SiPostman } from 'react-icons/si';
 import './App.css';
 
-const skills = [
-  { name: 'HTML5', Icon: SiHtml5, color: '#E34F26' },
-  // { name: 'CSS3', Icon: SiCss3, color: '#1572B6' },
-  { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E' },
-  { name: 'React', Icon: SiReact, color: '#61DAFB' },
-  { name: 'Node.js', Icon: SiNodedotjs, color: '#339933' },
-  { name: 'Express', Icon: SiExpress, color: '#000000' },
-  { name: 'MongoDB', Icon: SiMongodb, color: '#47A248' },
-  { name: 'MySQL', Icon: SiMysql, color: '#00758F' },
-  { name: 'GitHub', Icon: SiGithub, color: '#ffffff' },
-  { name: 'Figma', Icon: SiFigma, color: '#F24E1E' },
-  { name: 'Postman', Icon: SiPostman, color: '#FF6C37' }
+const skillGroups = [
+  {
+    category: 'Languages',
+    items: [
+      { name: 'HTML5', Icon: SiHtml5, color: '#E34F26' },
+      { name: 'CSS3', Icon: SiCss, color: '#1572B6' },
+      { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E' }
+    ]
+  },
+  {
+    category: 'Frameworks',
+    items: [
+      { name: 'React', Icon: SiReact, color: '#61DAFB' },
+      { name: 'Node.js', Icon: SiNodedotjs, color: '#339933' },
+      { name: 'Express', Icon: SiExpress, color: '#000000' }
+    ]
+  },
+  {
+    category: 'Databases',
+    items: [
+      { name: 'MongoDB', Icon: SiMongodb, color: '#47A248' },
+      { name: 'MySQL', Icon: SiMysql, color: '#00758F' }
+    ]
+  },
+  {
+    category: 'Tools & Platforms',
+    items: [
+      { name: 'Git', Icon: SiGit, color: '#F1502F' },
+      { name: 'GitHub', Icon: SiGithub, color: '#ffffff' },
+      { name: 'Figma', Icon: SiFigma, color: '#F24E1E' },
+      { name: 'Postman', Icon: SiPostman, color: '#FF6C37' }
+    ]
+  }
 ];
 
 function App() {
@@ -110,17 +131,25 @@ function App() {
       {/* Skills Section */}
       <section id="skills" className="scroll-animate" style={{ opacity: 0 }}>
         <h2 className="section-title">Technical Skills</h2>
-        <div className="skills-marquee">
-          <div className="skills-track">
-            {[...skills, ...skills].map((skill, index) => (
-              <div className="skill-badge" key={`${skill.name}-${index}`}>
-                <div className="skill-icon" style={{ color: skill.color }}>
-                  <skill.Icon size={20} />
-                </div>
-                <span>{skill.name}</span>
+        <p className="skills-description">
+          A modern toolkit for building responsive, scalable, and polished web applications.
+        </p>
+        <div className="skills-grid">
+          {skillGroups.map((group) => (
+            <div className="skill-card" key={group.category}>
+              <h3>{group.category}</h3>
+              <div className="skill-list">
+                {group.items.map((skill) => (
+                  <div className="skill-tile" key={skill.name}>
+                    <div className="skill-icon" style={{ color: skill.color }}>
+                      <skill.Icon size={20} />
+                    </div>
+                    <span>{skill.name}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
