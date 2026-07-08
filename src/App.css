@@ -241,14 +241,14 @@ section {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: rgba(0, 240, 255, 0.12);
-  color: var(--accent-primary);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
   flex-shrink: 0;
 }
 
 .skill-icon svg {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.3rem;
+  height: 1.3rem;
 }
 
 .skill-badge span {

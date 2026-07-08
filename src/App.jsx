@@ -1,117 +1,19 @@
 import { useEffect, useState } from 'react';
+import { SiHtml5, SiCss, SiJavascript, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiGithub, SiFigma, SiPostman } from 'react-icons/si';
 import './App.css';
 
 const skills = [
-  {
-    name: 'HTML5',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 2l1.8 18L12 22l7.2-2L21 2H3z" />
-        <path d="M7 7h10l-.3 3H9.3L9 13h7.2l-.5 5.1-3.7 1.1-3.7-1.1-.2-2.5" />
-      </svg>
-    )
-  },
-  {
-    name: 'CSS3',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 2l1.7 18 7.3 2 7.3-2L21 2H3z" />
-        <path d="M7 7h10l-.4 4H9.2l.2 2.2h7.1l-.4 4.2-3.2 1-3.2-1-.2-2.1" />
-      </svg>
-    )
-  },
-  {
-    name: 'JavaScript',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 3h18v18H3z" />
-        <path d="M8 7.5h4v9l-2 1" />
-        <path d="M16 7.5c1.5 0 2.5 1 2.5 2.5S17.5 12.5 16 12.5h-1v3" />
-      </svg>
-    )
-  },
-  {
-    name: 'React',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 3c4 0 7 3 7 7 0 3-2 5-5 6l-2 1-2-1c-3-1-5-3-5-6 0-4 3-7 7-7z" />
-        <path d="M12 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
-        <path d="M5 10c1 2 2.5 3.4 4.5 4.2" />
-        <path d="M19 10c-1 2-2.4 3.4-4.5 4.2" />
-      </svg>
-    )
-  },
-  {
-    name: 'Node.js',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
-        <path d="M12 7v10" />
-        <path d="M8 9.5l8 5" />
-        <path d="M16 9.5l-8 5" />
-      </svg>
-    )
-  },
-  {
-    name: 'Express',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 6h16" />
-        <path d="M7 6v12" />
-        <path d="M17 6v12" />
-        <path d="M7 12h10" />
-      </svg>
-    )
-  },
-  {
-    name: 'MongoDB',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 3c2.5 2 4 4.5 4 7.5 0 3.4-1.4 5.6-4 7.5-2.6-1.9-4-4.1-4-7.5C8 7.5 9.5 5 12 3z" />
-        <path d="M12 8v8" />
-      </svg>
-    )
-  },
-  {
-    name: 'MySQL',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 5h14v14H5z" />
-        <path d="M8 9h8" />
-        <path d="M8 13h5" />
-        <path d="M8 17h7" />
-      </svg>
-    )
-  },
-  {
-    name: 'GitHub',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 19c-5 1.5-5-2.5-7-3" />
-        <path d="M15 22v-3.9a3.4 3.4 0 0 0-1-2.6c3.2-.4 6.6-1.6 6.6-7A5.4 5.4 0 0 0 20 4.8 5.1 5.1 0 0 0 19.9 1s-1.2-.4-3.9 1.4a13.4 13.4 0 0 0-7 0C6.3.6 5.1 1 5.1 1A5.1 5.1 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.8c0 5.4 3.3 6.6 6.5 7a3.4 3.4 0 0 0-.9 2.6V22" />
-      </svg>
-    )
-  },
-  {
-    name: 'Figma',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M8 3a3 3 0 0 0 0 6h2V3H8z" />
-        <path d="M10 9h2a3 3 0 1 1 0 6h-2V9z" />
-        <path d="M10 15h2a3 3 0 1 0 0-6h-2v6z" />
-      </svg>
-    )
-  },
-  {
-    name: 'Postman',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 7h14" />
-        <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-        <path d="M7 7h10l-1 10a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2L7 7z" />
-      </svg>
-    )
-  }
+  { name: 'HTML5', Icon: SiHtml5, color: '#E34F26' },
+  // { name: 'CSS3', Icon: SiCss3, color: '#1572B6' },
+  { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E' },
+  { name: 'React', Icon: SiReact, color: '#61DAFB' },
+  { name: 'Node.js', Icon: SiNodedotjs, color: '#339933' },
+  { name: 'Express', Icon: SiExpress, color: '#000000' },
+  { name: 'MongoDB', Icon: SiMongodb, color: '#47A248' },
+  { name: 'MySQL', Icon: SiMysql, color: '#00758F' },
+  { name: 'GitHub', Icon: SiGithub, color: '#ffffff' },
+  { name: 'Figma', Icon: SiFigma, color: '#F24E1E' },
+  { name: 'Postman', Icon: SiPostman, color: '#FF6C37' }
 ];
 
 function App() {
@@ -212,7 +114,9 @@ function App() {
           <div className="skills-track">
             {[...skills, ...skills].map((skill, index) => (
               <div className="skill-badge" key={`${skill.name}-${index}`}>
-                <div className="skill-icon">{skill.icon}</div>
+                <div className="skill-icon" style={{ color: skill.color }}>
+                  <skill.Icon size={20} />
+                </div>
                 <span>{skill.name}</span>
               </div>
             ))}
@@ -231,7 +135,7 @@ function App() {
               <h3>Nexotips Infotech</h3>
               <h4>Frontend Developer Intern</h4>
               <div className="experience-meta">
-                <span>May 2026 – June 2026 (1 Month)</span>
+                <span>May 2026 – June 2026</span>
                 <span>Surat, Gujarat</span>
               </div>
               <ul>
@@ -247,7 +151,7 @@ function App() {
               <h3>Webito Infotech</h3>
               <h4>React Developer</h4>
               <div className="experience-meta">
-                <span>January 2026 – April 2026 (3 Month)</span>
+                <span>January 2026 – April 2026</span>
                 <span>Remote</span>
               </div>
               <ul>
@@ -263,7 +167,7 @@ function App() {
               <h3>Shonayavkash</h3>
               <h4>Frontend Developer</h4>
               <div className="experience-meta">
-                <span>June 2025 – July 2025 (1 Month)</span>
+                <span>June 2025 – July 2025</span>
                 <span>Surat, Gujarat</span>
               </div>
               <ul>
@@ -391,7 +295,7 @@ function App() {
           </div>
         </div>
 
-        <a href="mailto:nayanvavdiya062@gmail.com" className="btn-primary">Say Hello</a>
+        {/* <a href="mailto:nayanvavdiya062@gmail.com" className="btn-primary">Say Hello</a> */}
       </section>
 
       {/* Footer */}
