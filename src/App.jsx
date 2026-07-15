@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { SiHtml5, SiCss, SiJavascript, SiReact, SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiGit, SiFigma, SiPostman } from 'react-icons/si';
+import ParticleBackground from './ParticleBackground';
 import './App.css';
 
 const skillGroups = [
@@ -30,7 +31,7 @@ const skillGroups = [
     category: 'Tools & Platforms',
     items: [
       { name: 'Git', Icon: SiGit, color: '#F1502F' },
-      { name: 'GitHub', Icon: SiGithub, color: '#ffffff' },
+      // { name: 'GitHub', Icon: SiGithub, color: '#ffffff' },
       { name: 'Figma', Icon: SiFigma, color: '#F24E1E' },
       { name: 'Postman', Icon: SiPostman, color: '#FF6C37' }
     ]
@@ -64,6 +65,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <ParticleBackground />
       {/* Navigation */}
       <nav className="navbar">
         <div className="logo gradient-text">Nayan.dev</div>
@@ -97,7 +99,11 @@ function App() {
           <a href="#projects" className="btn-primary">View My Work</a>
           <a href="#contact" className="btn-secondary">Contact Me</a>
         </div>
-        <div className="social-links animate-fade-in delay-4">
+        <div className="availability animate-fade-in delay-4">
+          <span className="availability-dot"></span>
+          <span>Available for full-time opportunities</span>
+        </div>
+        <div className="social-links animate-fade-in delay-4" style={{ marginTop: '1.5rem' }}>
           <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
           </a>

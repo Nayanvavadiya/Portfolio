@@ -2,22 +2,22 @@
 
 :root {
   /* Color Palette */
-  --bg-dark: #0a0a0f;
-  --bg-card: rgba(20, 20, 30, 0.6);
-  --bg-card-hover: rgba(30, 30, 45, 0.8);
+  --bg-dark: #181818;
+  --bg-card: rgba(30, 30, 30, 0.6);
+  --bg-card-hover: rgba(40, 40, 40, 0.8);
   --text-main: #f8f8f8;
   --text-muted: #a0a0b0;
   
   /* Accents */
-  --accent-primary: #00f0ff;
-  --accent-secondary: #7000ff;
-  --gradient-text: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-  --gradient-bg: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(112, 0, 255, 0.1));
+  --accent-primary: #00E676;
+  --accent-secondary: #00B0FF;
+  --gradient-text: linear-gradient(90deg, var(--accent-primary), #ffffff);
+  --gradient-bg: linear-gradient(135deg, rgba(0, 230, 118, 0.1), rgba(255, 255, 255, 0.1));
 
   /* Glassmorphism */
-  --glass-border: 1px solid rgba(255, 255, 255, 0.05);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --glass-blur: blur(12px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.03);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --glass-blur: 12px;
   
   /* Fonts */
   --font-heading: 'Outfit', sans-serif;
@@ -30,19 +30,19 @@
 }
 
 [data-theme="light"] {
-  --bg-dark: #f0f4f8;
+  --bg-dark: #f5f5f7;
   --bg-card: rgba(255, 255, 255, 0.7);
   --bg-card-hover: rgba(255, 255, 255, 0.95);
-  --text-main: #1a1a24;
-  --text-muted: #4a4a5a;
+  --text-main: #1c1c1e;
+  --text-muted: #6b6b72;
   
-  --accent-primary: #0077cc;
-  --accent-secondary: #cc00ff;
-  --gradient-text: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-  --gradient-bg: linear-gradient(135deg, rgba(0, 119, 204, 0.1), rgba(204, 0, 255, 0.1));
+  --accent-primary: #00c853;
+  --accent-secondary: #0091ea;
+  --gradient-text: linear-gradient(90deg, var(--accent-primary), #1c1c1e);
+  --gradient-bg: linear-gradient(135deg, rgba(0, 200, 83, 0.1), rgba(28, 28, 30, 0.1));
 
-  --glass-border: 1px solid rgba(0, 0, 0, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  --glass-border: 1px solid rgba(0, 0, 0, 0.05);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -61,16 +61,8 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
-  /* subtle radial background */
-  background-image: radial-gradient(circle at 15% 50%, rgba(112, 0, 255, 0.05), transparent 25%),
-                    radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.05), transparent 25%);
   background-attachment: fixed;
   transition: background-color var(--transition-normal), color var(--transition-normal);
-}
-
-[data-theme="light"] body {
-  background-image: radial-gradient(circle at 15% 50%, rgba(204, 0, 255, 0.05), transparent 25%),
-                    radial-gradient(circle at 85% 30%, rgba(0, 119, 204, 0.05), transparent 25%);
 }
 
 h1, h2, h3, h4, h5, h6 {
